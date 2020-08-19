@@ -5,6 +5,8 @@
     </h1>
   </header>
 
+  <% puts "Categories: #{@categories.inspect}"%>
+
   <div class="well">
     <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
   </div>
@@ -24,8 +26,13 @@
             <td>
               <%= category.name%>
             </td>
+            <% puts "Product quantity: #{@products.count[category.id]}"%>
             <td>
-              <%= @products.count[category.id]%>
+              <% if @products.count[category.id]%>
+                <%= @products.count[category.id]%>
+              <% else %>
+                0
+              <% end %>
             </td>
           </tr>
         <% end %>

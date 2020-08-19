@@ -1,5 +1,7 @@
 class Admin::CategoriesController < ApplicationController
 
+  http_basic_authenticate_with name: ENV['ADMIN_EXAMPLE_USER'], password: ENV['ADMIN_EXAMPLE_PASSWORD']
+
   def index
     @categories = Category.all
     @products = Product.group(:category_id).all

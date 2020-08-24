@@ -5,11 +5,6 @@ RSpec.describe Product, type: :model do
 
       @category = Category.find_or_create_by! name: 'Test'
 
-      @product = Product.new({
-        name: 'Nicolas Cage Hair',
-        price_cents: '9999',
-        quantity: 1
-      })
       @category.products.create({
         name: 'Nicolas Cage Hair',
         price_cents: '9999',

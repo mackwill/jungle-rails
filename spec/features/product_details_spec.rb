@@ -18,28 +18,11 @@ RSpec.feature "ProductDetailds", type: :feature, js: true do
   scenario "They see all products" do
     # ACT
     visit root_path
-    # page.first('.product').find_link('Details »').click
-    # el = page.first :link, 'Details'
 
-    # el.click
-    # el = page.first :link, href: '/products/10'
-    # puts el.inspect
-    # el.trigger 'click'
-    # el = page.first('.product')
-    # el.find('Details', class: 'btn').click
-    # expect(page).to have_text 'Details'
-    el = page.first('article')
-    expect(el).to have_link 'Details'
-    el.click
-    # puts el.i/nspect
-    # page.first('article').find('footer').click_link('/products/10')
-    # el.click
-    # el.trigger 'click'
-    # click_on 'Login'
-    puts page.html
-    # puts page.html
-    # DEBUG / VERIFY
-    # save_screenshot
+
+    page.first('article').find_link('Details').click
+    expect(page).to have_css 'article.product-detail'
+
   end
 
 end

@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.first_name %>, thank you for your order!</h1>
+    <p>
+       Your order number is: <%= @order.id%><br>
+    </p>
+    <p>Your order items: </p>
+    <% @order.line_items.each do |item|  %>
+      <p><%= item.quantity %> x <%= Product.find_by(id: item.product_id).name%>
+    <% end %>
+
+    <p>Your order total is: $<%= @order.total_cents / 100 %></p>
+
+  </body>
+</html>
